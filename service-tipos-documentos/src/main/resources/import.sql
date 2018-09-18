@@ -1,0 +1,6 @@
+insert into tipo_cuantificacion(nombre) values('Monetario')
+insert into unidad_cuantificacion(nombre, signo, tipo_cuantificacion_id) values('Soles', 'S/', 1)
+insert into unidad_cuantificacion(nombre, signo, tipo_cuantificacion_id) values('Dólares', '$', 1)
+insert into unidad_cuantificacion(nombre, signo, tipo_cuantificacion_id) values('Euros', '€', 1)
+insert into tipo_documento(nombre) values('DOCUMENTOS NO VARIOS')
+insert into tipo_documento_tipo_cuantificacion(tipo_documento_id, tipo_cuantificacion_id) values(1,1)
