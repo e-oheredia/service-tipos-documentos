@@ -1,5 +1,7 @@
 package com.exact.service.documentos.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,8 +43,8 @@ public class TipoDocumentoController {
 		
 	}
 	
-	 @GetMapping
-	 public ResponseEntity<Iterable<TipoDocumento>> listarByIds(@RequestParam Iterable<Long> ids){
+	 @GetMapping(params = {"ids"})
+	 public ResponseEntity<Iterable<TipoDocumento>> listarByIds(@RequestParam List<Long> ids){
 		 return new ResponseEntity<Iterable<TipoDocumento>>(tipoDocumentoService.listarByIds(ids), HttpStatus.OK);
 	 }
 	
