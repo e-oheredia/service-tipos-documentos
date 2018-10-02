@@ -43,7 +43,11 @@ public class TipoDocumentoController {
 		
 	}
 	
+<<<<<<< HEAD
 	 @GetMapping(params="ids")
+=======
+	 @GetMapping(params = {"ids"})
+>>>>>>> branch 'master' of https://github.com/e-oheredia/service-tipos-documentos
 	 public ResponseEntity<Iterable<TipoDocumento>> listarByIds(@RequestParam List<Long> ids){
 		 return new ResponseEntity<Iterable<TipoDocumento>>(tipoDocumentoService.listarByIds(ids), HttpStatus.OK);
 	 }
