@@ -3,6 +3,7 @@ package com.exact.service.documentos.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,20 @@ public class TipoDocumentoService implements ITipoDocumentoService {
 	@Override
 	public Iterable<TipoDocumento> listarByIds(Iterable<Long> ids) {
 		return tipoDocumentoDao.findAllById(ids);
+	}
+	
+	@Override
+	public TipoDocumento guardarTipoDocumento(TipoDocumento tipoDocumento) {
+		return tipoDocumentoDao.save(tipoDocumento);
+	}
+
+	@Override
+	public Iterable<TipoDocumento> listarActivos() {
+		Iterable<TipoDocumento> tipodocumentosBD = tipoDocumentoDao.findAll();
+		List<TipoDocumento> tipodocumentos = StreamSupport.stream(tipodocumentosBD.spliterator(), false).collect(Collectors.toList());
+		tipodocumentos.removeIf(tipodoc -> !tipodoc.isActivo());
+		return tipodocumentos;
+				
 	}
 	
 	

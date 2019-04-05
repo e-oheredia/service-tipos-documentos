@@ -7,6 +7,8 @@ public interface ITipoDocumentoService {
 	public Iterable<TipoDocumento> guardar(Iterable<TipoDocumento> tiposDocumento); 
 	public Iterable<TipoDocumento> listarPrimerNivel();
 	Iterable<TipoDocumento> listarByIds(Iterable<Long> ids);
+	TipoDocumento guardarTipoDocumento(TipoDocumento tipoDocumento);
+	public Iterable<TipoDocumento> listarActivos();
 	
 	
 }
