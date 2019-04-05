@@ -27,6 +27,9 @@ public class TipoDocumento implements Serializable{
 	@Column(nullable=false, length=100, unique=true)
 	private String nombre;
 	
+	@Column(nullable=false)
+	private boolean activo;
+	
 	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name="jerarquia_tipo_documento", joinColumns = { @JoinColumn(name = "tipo_documento_padre_id") },
     inverseJoinColumns = { @JoinColumn(name = "tipo_documento_hijo_id") })
@@ -53,6 +56,12 @@ public class TipoDocumento implements Serializable{
 	
 	
 	
+	public boolean isActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
 	public Long getId() {
 		return id;
 	}
