@@ -69,11 +69,11 @@ public class TipoDocumentoController {
 			TipoDocumento tipodocumentoBD=null;
 			try {
 				tipodocumentoBD = mapper.readValue(tipoDocumento, TipoDocumento.class);
-			} catch (IOException e) {
-				e.printStackTrace();
+				tipodocumentoBD.setActivo(true);
+				return new ResponseEntity<TipoDocumento>(tipoDocumentoService.guardarTipoDocumento(tipodocumentoBD), HttpStatus.OK);
+			} catch (Exception e) {
+				return new ResponseEntity<TipoDocumento>(HttpStatus.BAD_REQUEST);
 			}
-			tipodocumentoBD.setActivo(true);
-		 return new ResponseEntity<TipoDocumento>(tipoDocumentoService.guardarTipoDocumento(tipodocumentoBD), HttpStatus.OK);
 	}
 	 
 	 @PutMapping("/{id}")
@@ -82,11 +82,12 @@ public class TipoDocumentoController {
 			TipoDocumento tipodocumentoBD=null;
 			try {
 				tipodocumentoBD = mapper.readValue(tipoDocumento, TipoDocumento.class);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			tipodocumentoBD.setId(id);
-		 return new ResponseEntity<TipoDocumento>(tipoDocumentoService.guardarTipoDocumento(tipodocumentoBD), HttpStatus.OK);
+				tipodocumentoBD.setId(id);
+				 return new ResponseEntity<TipoDocumento>(tipoDocumentoService.guardarTipoDocumento(tipodocumentoBD), HttpStatus.OK);
+			} catch (Exception e) {
+				return new ResponseEntity<TipoDocumento>(HttpStatus.BAD_REQUEST);
+		}
+			
 	}
 	 
 	
