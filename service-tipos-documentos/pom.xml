@@ -7,7 +7,7 @@
 	<groupId>com.exact</groupId>
 	<artifactId>service-documentos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>service-documentos</name>
 	<description>Proyecto para catalogo de documentos</description>
@@ -34,6 +34,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
@@ -54,6 +55,11 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>2.9.6</version>
+		</dependency>
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy</artifactId>
+			<version>1.9.3</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 	</dependencies>
 
